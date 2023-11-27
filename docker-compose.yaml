@@ -7,3 +7,15 @@ services:
     volumes:
       - ./conf:/etc/nginx/conf.d/
       - ./html:/usr/share/nginx/html
+    depends_on:
+      - flask
+
+  flask:
+    build: .
+    container_name: flask
+    ports: 
+      - "5000:5000"
+    volumes:
+      - ./flask_app:/flask_app
+    #command: flask run --host=0.0.0.0
+    command: flask run

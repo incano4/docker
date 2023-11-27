@@ -1,4 +1,5 @@
-FROM nginx:1.24.0
+FROM python:3.12
 
-COPY ./conf/default.conf /etc/nginx/conf.d/
-COPY ./html/index.html /usr/share/nginx/html
+#пришлось посмотреть команду :..)
+RUN pip install --no-cache-dir --upgrade pip flask
+WORKDIR /flask_app
